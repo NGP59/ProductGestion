@@ -1,0 +1,56 @@
+//creation projet sympfony
+composer create-project symfony/skeleton:"6.4.*" NomDuProjet 
+
+//ajout de twig bundle
+composer require symfony/twig-bundle
+
+//ajout du chemin pour les lien css et images
+composer require symfony/asset
+
+//install tout les package sur la meme ligne de commande
+composer require --dev symfony/maker-bundle
+
+//instalation doctrine
+composer require symfony/orm-pack
+
+//installer les fixtures
+//composer require --dev doctrine/doctrine-fixtures-bundle
+
+//installer faker
+//composer require fakerphp/faker
+
+creation de .env.dev
+
+//demarrer le server
+symfony server:start
+
+//creation d'une class
+symfony console make:entity nom de l'entity
+puis ajout des param dans la console
+possibilité de faire les clés étrangère dans la consle avec le wizard
+
+//migration de la bdd
+symfony console make:migration
+symfony console d:m:m
+//ajout des données dans la bdd
+symfony console d:f:l
+
+//installation des securité package
+composer requipre security-csrf
+
+//crée le crud des entity ATTENTION faire la migration avant
+symfony console make:crud
+
+symfony console d:d:d pour delete une bdd
+symfony console d:d:c pour cree une bdd
+
+//quand on commence a vouloir mettre de la sécurité et avant de faire le register
+composer require security
+
+symfony console make:user
+
+symfony console make:auth
+
+symfony console make:registration-form
+
+composer req symfony/profiler-pack --dev
