@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+	<h1 id="Title" class="honk">List Products</h1>
+	<div id="FlexHeader">
+		{% if is_granted("ROLE_ADMIN") %}
+			<a href="{{ path('app_product_new') }}">
+				<button>Create new</button>
+			</a>
+		{% endif %}
+
+	</div>
+	<br>
+	<div id="Container">
+		<table class="table">
+			<thead>
+				<tr>
+					{# <th>Id</th> #}
+					<th class="honk">Price</th>
+					<th class="honk">Description</th>
+					<th class="honk">URLImage</th>
+					<th class="honk">actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for product in products %}
+					<tr>
+						{# <td>{{ product.id }}</td> #}
+						<td>{{ product.price }}€</td>
+						<td>{{ product.Description }}</td>
+						<td><img src="{{asset(product.URLImage) }} "/></td>
+						<td>
+							<a href="{{ path('app_product_show', {'id': product.id}) }}">
+								<button>Show Product</button>
+							</a>
+							{% if is_granted('ROLE_ADMIN') %}
+								<a href="{{ path('app_product_edit', {'id': product.id}) }}">
+									<button>Edit Product</button>
+								</a>
+							{% endif %}
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="5">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

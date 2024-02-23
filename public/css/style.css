@@ -1,0 +1,56 @@
+.honk{
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+    font-size: 50px;
+}
+
+#Title
+{
+    text-align: center;
+}
+#FlexHeader
+{
+    display: flex;
+    justify-content:center;
+}
+#Container{
+   
+    display: flex;
+    justify-content: space-around;
+}
+
+table{
+    background-color: rgb(96, 200, 231);
+    border: solid 1px;
+    border: 1px solid;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+   
+}
+
+th{
+    background-color: aquamarine;
+    font-size: 20px;  
+    border: 1px solid;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+td{
+    background-color: beige;
+    border: 1px solid;
+    text-align: center;
+}
+button{
+    border-radius: 5px;
+    background-color: skyblue;
+    color: white;
+}

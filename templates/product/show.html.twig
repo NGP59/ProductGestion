@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product
+{% endblock %}
+{% block stylesheets %}
+	<link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+	<h1 class="honk">Product</h1>
+	<table class="table">
+		<tbody>
+			<tr>{# <th>Id</th> #}
+				{# <td>{{ product.id }}</td> #}
+			</tr>
+			<tr>
+				<th class="honk">Description</th>
+				<td>{{ product.Description }}</td>
+			</tr>
+			<tr>
+				<th class="honk">Price</th>
+				<td>{{ product.price }}€</td>
+			</tr>
+
+			<tr>
+				<th class="honk">Image product</th>
+				<td><img src="{{asset(product.URLImage) }} "/></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<div id="btn">
+		<a href="{{ path('app_product_index') }}">
+			<button>back to list</button>
+		</a>
+
+		{% if is_granted("ROLE_ADMIN") %}
+			<a href="{{ path('app_product_edit', {'id': product.id}) }}">
+				<button>Edit Product</button>
+			</a>
+		{% endif %}
+		{# {{ include('product/_delete_form.html.twig') }} #}
+	{% endblock %}
